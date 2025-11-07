@@ -1,0 +1,24 @@
+---
+import Default from '@astrojs/starlight/components/SiteTitle.astro';
+
+import type { Props } from '@astrojs/starlight/props';
+import links from '../data/links.json';
+---
+
+<div class="flex items-center gap-[var(--sl-nav-gap)]">
+    <Default {...Astro.props} />
+    <ul class="hidden sm:flex list-none p-0 gap-[var(--sl-nav-gap)]">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="no-underline font-semibold text-[color:var(--sl-color-text-accent)] hover:text-[color:var(--sl-color-white)] focus:text-[color:var(--sl-color-white)] aria-[current=page]:font-semibold aria-[current=page]:hover:font-semibold aria-[current=page]:focus:font-semibold text-base md:text-[var(--sl-text-sm)]"
+          >
+            {link.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+</div>
