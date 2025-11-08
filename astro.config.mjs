@@ -18,6 +18,9 @@ export default defineConfig({
 				
 
 			],
+			editLink: {
+				baseUrl: 'https://github.com/izrofid/hearthdocs/edit/master',
+			},
 			components: {SiteTitle: './src/starlightOverrides/SiteTitle.astro'},
 			sidebar: [
 				{
