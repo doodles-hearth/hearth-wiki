@@ -5,6 +5,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    defaultStrategy: 'tap',
+  },
+  experimental: {
+	clientPrerender: true,
+  },
   integrations: [
     starlight({
       title: 'Pokémon Hearth',
