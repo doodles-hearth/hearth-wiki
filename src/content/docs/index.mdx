@@ -4,14 +4,19 @@ description: Get started building your docs site with Starlight.
 template: splash
 hero:
   title: |
-    Pokémon
-    <span
-      class="font-black text-transparent
+    <span class="drop-shadow-lg/10">
+    <span class="text-transparent
         bg-clip-text bg-gradient-to-b
-        drop-shadow-lg/10
+        hearth-text-outline
+        from-[var(--color-stone-700)] to-[var(--color-stone-900)]">Pokémon</span>
+    <span
+      class="text-transparent
+        bg-clip-text bg-gradient-to-b
+        hearth-text-outline
         from-[var(--hearth-orange-1)] to-[var(--hearth-orange-3)]"
     >
       Hearth
+    </span>
     </span>
   tagline: Welcome to the official wiki!
   image:
@@ -28,16 +33,16 @@ hero:
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <CardGrid stagger>
-	<Card title="New Region" icon="star">
-		Explore the brand new Toku Region based on Ancient Japan and China!
-	</Card>
-	<Card title="Cozy Vibes" icon="heart">
-		Enjoy a cozy adventure with your team!
-	</Card>
-	<Card title="Cool Systems" icon="setting">
-		Hearth features tons of cool new mechanics!
-	</Card>
-	<Card title="Gorgeous Art" icon="pencil">
-		Almost everything is new custom art!
-	</Card>
+  <Card title="New Region" icon="star">
+    Explore the brand new Toku Region based on Ancient Japan and China!
+  </Card>
+  <Card title="Cozy Vibes" icon="heart">
+    Enjoy a cozy adventure with your team!
+  </Card>
+  <Card title="Cool Systems" icon="setting">
+    Hearth features tons of cool new mechanics!
+  </Card>
+  <Card title="Gorgeous Art" icon="pencil">
+    Almost everything is new custom art!
+  </Card>
 </CardGrid>
