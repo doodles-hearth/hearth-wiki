@@ -90,8 +90,9 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4, h5 {
   font-family: var(--font-hatto);
+  @apply text-shadow-xs text-shadow-gray-700/15;
 }
 .hearth-text-outline {
   -webkit-text-stroke: 0.25px var(--hearth-gray-2);
