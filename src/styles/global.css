@@ -5,11 +5,18 @@
 @import 'tailwindcss/utilities.css' layer(utilities);
 
 @font-face {
-  font-family: "Hatto";
-  src: url("/src/assets/fonts/hatto_regular.otf") format("truetype");
-  font-weight: normal;
+  font-family: 'Hatto';
+  src: url('/src/assets/fonts/Hatto-Regular.otf') format('opentype');
   font-style: normal;
-  font-display: swap;
+  font-weight: normal;
+  font-display: auto;
+}
+@font-face {
+  font-family: 'Hatto';
+  src: url('/src/assets/fonts/Hatto-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: auto;
 }
 
 @theme {
@@ -25,7 +32,7 @@
   /* Generated gray color palettes. */
   --color-gray-100: #fff5e3;
   --color-gray-200: #ffebc7;
-  --color-gray-300: #d8bf8e;
+  --color-gray-300: #d8bf8e; /* <p> color */
   --color-gray-400: #b28300;
   --color-gray-500: #715200;
   --color-gray-700: #4a3400;
@@ -35,33 +42,96 @@
   /* Specker's colors */
   --hearth-gray-1: oklch(0.6402 0.0412 90.62);
   --hearth-gray-2: oklch(0.5583 0.0291 82.01);
-  --hearth-orange-1: oklch(0.9265 0.0782 77.64);
-  --hearth-orange-2: oklch(0.8971 0.1172 78.85);
-  --hearth-orange-3: oklch(0.7581 0.1545 63.07);
-  --hearth-brown-1: oklch(0.5184 0.0561 63.98);
-  --hearth-brown-2: oklch(0.4332 0.0513 51.64);
-  --color-stone-800: oklch(0.3108 0.0178 121.02);
-  --color-stone-700: oklch(0.3691 0.0171 120.83);
+  --hearth-orange-0: oklch(0.9265 0.0782 77.64);
+  --hearth-orange-1: oklch(0.8765 0.1122 83.33);
+
+  --hearth-orange-2: oklch(0.8575 0.143 81.71);
+  --hearth-orange-3: oklch(0.8354 0.1621 78.57);
+  --hearth-brown-0: oklch(0.991 0.0271 85.67);
+  --hearth-brown-1: oklch(0.791 0.0666 84.35);
+  --hearth-brown-2: oklch(0.5168 0.0483 67.57);
+  --hearth-brown-3: oklch(0.4332 0.0513 51.64);
+
   --color-stone-600: oklch(0.4163 0.02 142.43);
   --color-stone-500: oklch(0.4574 0.0228 151.71);
   --color-stone-400: oklch(0.5767 0.0322 164.45);
-  --color-gray-700: var(--color-stone-700);
+  /* The text colors are all based on shades of gray */
+
   --color-gray-600: var(--color-stone-600);
   --color-gray-500: var(--color-stone-500);
   --color-misc-error: #7a6660;
-
-  --font-hatto: "Hatto";
+  --font-hatto: 'Hatto';
 }
 
-/*
-Add additional Tailwind styles to this file:
-https://tailwindcss.com/docs/adding-custom-styles#using-custom-css
-*/
-
-h1 {
-  color: var(--color-accent-600);
+/* Theme-specific color overrides */
+:root[data-theme='light'] {
+  --color-stone-900: oklch(0.272 0.0146 118.78);
+  --color-stone-800: oklch(0.3108 0.0178 121.02);
+  --color-stone-700: oklch(0.3691 0.0171 120.83);
+  --color-gray-900: var(--color-stone-900);
+  --color-gray-800: var(--color-stone-800);
+  --color-gray-700: var(--color-stone-700);
+  --color-gray-300: var(--hearth-gray-2);
+  --color-white: #f7f0e7; /* Textboxs in-game */
 }
 
-h1, h2, h3, h4 {
-    font-family: var(--font-hatto);
+:root[data-theme='dark'] {
+  --color-white: var(--hearth-brown-0);
+}
+
+body {
+  font-family: 'Hatto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-hatto);
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#customizing_your_animations */
+
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(26px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-26px);
+  }
+}
+.main-pane {
+  view-transition-name: main-frame;
+}
+::view-transition-old(main-frame) {
+  animation: 52ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    143ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(main-frame) {
+  animation: 130ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    260ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+/*header elem will jitter without this*/  
+::view-transition-group(header) {
+  animation: none;
 }
