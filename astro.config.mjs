@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   prefetch: {
-    defaultStrategy: 'tap',
+    defaultStrategy: 'hover',
   },
   experimental: {
 	clientPrerender: true,
