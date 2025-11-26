@@ -42,11 +42,11 @@
   /* Specker's colors */
   --hearth-gray-1: oklch(0.6402 0.0412 90.62);
   --hearth-gray-2: oklch(0.5583 0.0291 82.01);
-  --hearth-orange-0: oklch(0.9265 0.0782 77.64);
-  --hearth-orange-1: oklch(0.8765 0.1122 83.33);
-
-  --hearth-orange-2: oklch(0.8575 0.143 81.71);
-  --hearth-orange-3: oklch(0.8354 0.1621 78.57);
+  --hearth-orange-0: oklch(0.9768 0.0126 86.83);
+  --hearth-orange-1: oklch(0.9265 0.0782 77.64);
+  --hearth-orange-2: oklch(0.8765 0.1122 83.33);
+  --hearth-orange-3: oklch(0.8575 0.143 81.71);
+  --hearth-orange-4: oklch(0.8354 0.1621 78.57);
   --hearth-brown-0: oklch(0.991 0.0271 85.67);
   --hearth-brown-1: oklch(0.791 0.0666 84.35);
   --hearth-brown-2: oklch(0.5168 0.0483 67.57);
@@ -65,14 +65,14 @@
 
 /* Theme-specific color overrides */
 :root[data-theme='light'] {
-  --color-stone-900: oklch(0.272 0.0146 118.78);
+  --color-stone-900: oklch(0.282 0.0146 118.78);
   --color-stone-800: oklch(0.3108 0.0178 121.02);
-  --color-stone-700: oklch(0.3691 0.0171 120.83);
+  --color-stone-700: oklch(0.3591 0.0171 120.83);
   --color-gray-900: var(--color-stone-900);
   --color-gray-800: var(--color-stone-800);
   --color-gray-700: var(--color-stone-700);
   --color-gray-300: var(--hearth-gray-2);
-  --color-white: #FAF5EF; /* Textboxs in-game */
+  --color-white: var(--hearth-orange-0); /* Textboxs in-game */
 }
 
 :root[data-theme='dark'] {
