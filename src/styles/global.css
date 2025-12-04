@@ -97,12 +97,13 @@ h5 {
 }
 /* Hero styling */
 .hero img {
+  image-rendering: optimizeQuality;
   mask-image: linear-gradient(
     to bottom,
     var(--hearth-brown-3) 80%,
     transparent 100%
   );
-  filter: drop-shadow(2px 4px 6px var(--hearth-brown-3));
+  filter: drop-shadow(0.25rem 0.5rem 6px var(--hearth-brown-3));
 }
 .hearth-text-outline {
   -webkit-text-stroke: 0.25px var(--hearth-gray-2);
