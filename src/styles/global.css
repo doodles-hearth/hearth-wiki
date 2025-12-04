@@ -84,15 +84,25 @@
 }
 
 body {
-  font-family: 'Meiryo', 'Hatto', sans-serif;
+  font-family: 'Hatto', sans-serif;
 }
 
 h1,
 h2,
 h3,
-h4, h5 {
+h4,
+h5 {
   font-family: var(--font-hatto);
-  @apply text-shadow-xs text-shadow-gray-700/15;
+  @apply text-shadow-xs text-shadow-stone-700/15;
+}
+/* Hero styling */
+.hero img {
+  mask-image: linear-gradient(
+    to bottom,
+    var(--hearth-brown-3) 80%,
+    transparent 100%
+  );
+  filter: drop-shadow(2px 4px 6px var(--hearth-brown-3));
 }
 .hearth-text-outline {
   -webkit-text-stroke: 0.25px var(--hearth-gray-2);
@@ -100,6 +110,7 @@ h4, h5 {
 .pokemon-text-outline {
   -webkit-text-stroke: 0.5px var(--hearth-orange-1);
 }
+/* End hero styling */
 /* https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#customizing_your_animations */
 
 @view-transition {
